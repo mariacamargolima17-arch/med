@@ -1,1 +1,70 @@
 
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Portfólio Semântico</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-theme">
+
+    <!-- Acessibilidade: Link para pular direto para o conteúdo principal -->
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+
+    <header class="header">
+        <div class="header-container">
+            <span class="logo" aria-label="Logo do Portfólio">DevStart</span>
+            <nav aria-label="Menu principal">
+                <ul class="nav-links">
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#projetos">Projetos</a></li>
+                </ul>
+            </nav>
+            <button id="theme-toggle" aria-label="Alternar tema visual" class="btn-theme">
+                🌓 Mudar Tema
+            </button>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section id="sobre" class="hero-section">
+            <h1>Olá, boas-vindas ao meu espaço digital!</h1>
+            <p>Desenvolvedor em formação pelo programa Start da Alura. Focado em criar experiências acessíveis e eficientes.</p>
+            
+            <!-- Componente de Interação Dinâmica -->
+            <div class="interaction-box">
+                <button id="like-btn" class="btn-like" aria-live="polite">
+                    ❤️ Curtir projeto
+                </button>
+                <p class="like-counter">Curtidas: <span id="like-count">0</span></p>
+            </div>
+        </section>
+
+        <section id="projetos" class="projects-section">
+            <h2>Projetos Recentes</h2>
+            <div class="projects-grid">
+                <article class="project-card">
+                    <h3>Alura Tracker</h3>
+                    <p>Sistema para monitoramento de estudos de forma produtiva.</p>
+                    <a href="#" class="project-link" aria-label="Ver projeto Alura Tracker">Acessar projeto</a>
+                </article>
+                <article class="project-card">
+                    <h3>Decodificador de Texto</h3>
+                    <p>Ferramenta para criptografar e descriptografar mensagens secretas.</p>
+                    <a href="#" class="project-link" aria-label="Ver projeto Decodificador de Texto">Acessar projeto</a>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 DevStart. Desenvolvido de forma colaborativa.</p>
+        <p class="attribution">
+            Referências de design inspiradas na comunidade Open Source e documentação MDN Web Docs.
+        </p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
