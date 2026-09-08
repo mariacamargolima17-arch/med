@@ -1,70 +1,112 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Portfólio Semântico</title>
+    <title>Futuro Integrado | Blog</title>
+    <!-- Link para o arquivo CSS externo -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="light-theme">
+<body class="dark-mode">
 
-    <!-- Acessibilidade: Link para pular direto para o conteúdo principal -->
-    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+    <!-- BOTÃO DO ALTERNADOR DE TEMA -->
+    <button id="theme-toggle" class="theme-btn">🌓 Mudar Tema</button>
 
-    <header class="header">
-        <div class="header-container">
-            <span class="logo" aria-label="Logo do Portfólio">DevStart</span>
-            <nav aria-label="Menu principal">
-                <ul class="nav-links">
-                    <li><a href="#sobre">Sobre</a></li>
-                    <li><a href="#projetos">Projetos</a></li>
-                </ul>
-            </nav>
-            <button id="theme-toggle" aria-label="Alternar tema visual" class="btn-theme">
-                🌓 Mudar Tema
-            </button>
-        </div>
-    </header>
+    <div class="container">
+        
+        <!-- CABEÇALHO DO BLOG -->
+        <header>
+            <h1>Futuro Integrado</h1>
+            <p>O seu guia sobre Ensino Médio Técnico e Gestão</p>
+        </header>
 
-    <main id="main-content">
-        <section id="sobre" class="hero-section">
-            <h1>Olá, boas-vindas ao meu espaço digital!</h1>
-            <p>Desenvolvedor em formação pelo programa Start da Alura. Focado em criar experiências acessíveis e eficientes.</p>
+        <!-- GRADE DE ARTIGOS -->
+        <main class="blog-grid">
             
-            <!-- Componente de Interação Dinâmica -->
-            <div class="interaction-box">
-                <button id="like-btn" class="btn-like" aria-live="polite">
-                    ❤️ Curtir projeto
-                </button>
-                <p class="like-counter">Curtidas: <span id="like-count">0</span></p>
-            </div>
+            <!-- POST 1 -->
+            <article class="post-card">
+                <div>
+                    <span class="post-tag tag-edu">Educação</span>
+                    <h2>O que é o Ensino Médio Integrado?</h2>
+                    <p>Imagine terminar o colégio com dois diplomas na mão. Essa modalidade junta o ensino tradicional com o técnico em uma única matrícula.</p>
+                    <ul>
+                        <li>Matérias normais e técnicas juntas</li>
+                        <li>Aulas na mesma escola</li>
+                        <li>Duração padrão de 3 anos</li>
+                        <li>Pronto para a faculdade ou mercado</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- POST 2 -->
+            <article class="post-card">
+                <div>
+                    <span class="post-tag tag-adm">Foco em Adm</span>
+                    <h2>Técnico em Administração: O Curso Coringa</h2>
+                    <p>Se você tem dúvidas sobre qual carreira seguir, Administração é a melhor escolha. Toda empresa precisa de organização e gestão.</p>
+                    <ul>
+                        <li>Finanças e controle de caixa</li>
+                        <li>Marketing e estratégias digitais</li>
+                        <li>Recursos Humanos e liderança</li>
+                        <li>Empreendedorismo direto na prática</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- POST 3 -->
+            <article class="post-card">
+                <div>
+                    <span class="post-tag tag-vantagens">Vantagens</span>
+                    <h2>5 Motivos para Escolher Administração</h2>
+                    <p>Descubra as principais vantagens que fazem a Administração Integrada ser um diferencial enorme para o seu futuro.</p>
+                    <ul>
+                        <li>Amadurecimento profissional rápido</li>
+                        <li>Vagas de Jovem Aprendiz mais cedo</li>
+                        <li>Mentalidade focada em negócios</li>
+                        <li>Base forte para o ensino superior</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- POST 4 -->
+            <article class="post-card">
+                <div>
+                    <span class="post-tag tag-mercado">Mercado</span>
+                    <h2>Onde o Técnico em Adm Pode Trabalhar?</h2>
+                    <p>O mercado de trabalho para essa área é imenso. Como toda empresa precisa de gestão, as vagas aparecem em todos os setores.</p>
+                    <ul>
+                        <li>Escritórios e grandes corporações</li>
+                        <li>Bancos, comércio e lojas físicas</li>
+                        <li>Hospitais, escolas e órgãos públicos</li>
+                        <li>Criando a sua própria startup</li>
+                    </ul>
+                </div>
+            </article>
+
+        </main>
+
+        <!-- SESSÃO DE COMENTÁRIOS -->
+        <section class="interaction-section">
+            <h3>E você? Já pensou no seu futuro?</h3>
+            <p>Deixe um comentário abaixo dizendo o que achou do Técnico em Administração!</p>
+            
+            <form id="comment-form" class="comment-box">
+                <input type="text" id="comment-input" placeholder="Digite seu comentário aqui..." required>
+                <button type="submit">Enviar</button>
+            </form>
+
+            <!-- Espaço onde os comentários aparecem dinamicamente -->
+            <div id="comments-container" class="comments-list"></div>
         </section>
 
-        <section id="projetos" class="projects-section">
-            <h2>Projetos Recentes</h2>
-            <div class="projects-grid">
-                <article class="project-card">
-                    <h3>Alura Tracker</h3>
-                    <p>Sistema para monitoramento de estudos de forma produtiva.</p>
-                    <a href="#" class="project-link" aria-label="Ver projeto Alura Tracker">Acessar projeto</a>
-                </article>
-                <article class="project-card">
-                    <h3>Decodificador de Texto</h3>
-                    <p>Ferramenta para criptografar e descriptografar mensagens secretas.</p>
-                    <a href="#" class="project-link" aria-label="Ver projeto Decodificador de Texto">Acessar projeto</a>
-                </article>
-            </div>
-        </section>
-    </main>
+        <!-- RODAPÉ -->
+        <footer>
+            <p>&copy; 2026 Futuro Integrado. Desenvolvido com HTML, CSS e JavaScript.</p>
+        </footer>
 
-    <footer class="footer">
-        <p>&copy; 2026 DevStart. Desenvolvido de forma colaborativa.</p>
-        <p class="attribution">
-            Referências de design inspiradas na comunidade Open Source e documentação MDN Web Docs.
-        </p>
-    </footer>
+    </div>
 
+    <!-- Link para o arquivo JavaScript externo -->
     <script src="script.js"></script>
 </body>
 </html>

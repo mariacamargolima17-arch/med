@@ -1,36 +1,42 @@
-// 1. Mapeamento de Elementos do DOM (Document Object Model)
-const themeToggleBtn = document.getElementById('theme-toggle');
-const likeBtn = document.getElementById('like-btn');
-const likeCountSpan = document.getElementById('like-count');
-const bodyElement = document.body;
+// --- FUNCIONALIDADE 1: SELETOR DE TEMA ---
+const botaoTema = document.getElementById('theme-toggle');
+const corpoPagina = document.body;
 
-// 2. Funcionalidade Dinâmica: Contador com Lógica Condicional
-let totalLikes = 0;
-
-likeBtn.addEventListener('click', () => {
-    totalLikes++;
-    likeCountSpan.textContent = totalLikes;
-    
-    // Lógica Condicional para melhorar a UX (Experiência do Usuário)
-    if (totalLikes === 10) {
-        likeBtn.textContent = "🎉 Super Leitor!";
-        likeBtn.style.backgroundColor = "var(--accent-color)";
-    } else if (totalLikes === 1) {
-        likeBtn.textContent = "❤️ Obrigado pelo clique!";
+botaoTema.addEventListener('click', () => {
+    // Altera as classes do body para controlar as cores do CSS
+    if (corpoPagina.classList.contains('dark-mode')) {
+        corpoPagina.classList.remove('dark-mode');
+        corpoPagina.classList.add('light-mode');
+    } else {
+        corpoPagina.classList.remove('light-mode');
+        corpoPagina.classList.add('dark-mode');
     }
 });
 
-// 3. Troca de Temas (Light / Dark Mode)
-themeToggleBtn.addEventListener('click', () => {
-    // Verifica qual classe está ativa e alterna
-    if (bodyElement.classList.contains('light-theme')) {
-        bodyElement.classList.remove('light-theme');
-        bodyElement.classList.add('dark-theme');
-        // Acessibilidade: Atualiza o estado para leitores de tela se necessário
-        themeToggleBtn.setAttribute('aria-label', 'Mudar para tema claro');
-    } else {
-        bodyElement.classList.remove('dark-theme');
-        bodyElement.classList.add('light-theme');
-        themeToggleBtn.setAttribute('aria-label', 'Mudar para tema escuro');
+// --- FUNCIONALIDADE 2: ENVIO DE COMENTÁRIOS SEM RECARREGAR ---
+const formularioComentario = document.getElementById('comment-form');
+const inputComentario = document.getElementById('comment-input');
+const blocoComentarios = document.getElementById('comments-container');
+
+formularioComentario.addEventListener('submit', (evento) => {
+    // Bloqueia o reset padrão que a página daria ao enviar o form
+    evento.preventDefault();
+
+    // Limpa os espaços vazios do texto digitado
+    const textoDigitado = inputComentario.value.trim();
+
+    if (textoDigitado !== "") {
+        // Cria a caixinha do novo comentário estruturada
+        const estruturaComentario = document.createElement('div');
+        estruturaComentario.classList.add('comment-item');
+        
+        // Define o conteúdo interno do comentário adicionado
+        estruturaComentario.innerHTML = `<strong>👤 Estudante de Adm:</strong> <p>${textoDigitado}</p>`;
+        
+        // Joga a caixinha nova dentro da lista visível do blog
+        blocoComentarios.appendChild(estruturaComentario);
+        
+        // Apaga o que ficou escrito no campo de texto para o próximo uso
+        inputComentario.value = "";
     }
 });
